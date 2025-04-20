@@ -1,1 +1,1 @@
-const BASE_URL = "https://frontend-notes162-dot-c-07-450804.uc.r.appspot.com/";
+const BASE_URL = "https://notes-backend162-639911956774.us-central1.run.app/notes";
