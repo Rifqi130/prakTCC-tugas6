@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const BASE_URL = "https://frontend-notes162-dot-c-07-450804.uc.r.appspot.com/";
     const noteForm = document.getElementById('noteForm');
     const notesList = document.getElementById('notesList');
     const editModal = document.getElementById('editModal');
@@ -9,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Fetch all notes
     function fetchNotes() {
-        fetch('http://localhost:5001/notes')
+        fetch(`${BASE_URL}notes`)
             .then(response => response.json())
             .then(data => {
                 notesList.innerHTML = '';
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const catatan = document.getElementById('catatan').value;
         const date = document.getElementById('date').value;
 
-        fetch('http://localhost:5001/notes', {
+        fetch(`${BASE_URL}notes`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const catatan = document.getElementById('editCatatan').value;
         const date = document.getElementById('editDate').value;
 
-        fetch(`http://localhost:5001/notes/${currentNoteId}`, {
+        fetch(`${BASE_URL}notes/${currentNoteId}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -86,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Delete a note
     window.deleteNote = function (id) {
-        fetch(`http://localhost:5001/notes/${id}`, {
+        fetch(`${BASE_URL}notes/${id}`, {
             method: 'DELETE',
         })
         .then(response => response.json())
